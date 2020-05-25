@@ -1,0 +1,43 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="container" fxLayout="column" fxLayoutGap="10px">
+            <div fxFlex>
+              <div>
+                <h3>Chapters</h3>
+                <hr />
+              </div>
+            </div>
+            <div fxFlex *ngIf="chapters">
+              <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile
+                  class="title-tem"
+                  *ngFor="let chapter of chapters"
+                  [routerLink]="['/topic', chapters.id]"
+                  appHighlight
+                >
+                  <mat-card-content
+                    >{{ chapter.name | uppercase }}<br />{{
+                      chapter.attempt
+                    }}/{{ chapter.topic }} concept practiced</mat-card-content
+                  >
+                </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+            <div [hidden]="chapters || errMess">
+              <mat-spinner></mat-spinner>
+              <h4>Loading . . . Please Wait</h4>
+            </div>
+
+            <div fxFlex *ngIf="errMess">
+              <h2>Error</h2>
+              <h4>{{ errMess }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
