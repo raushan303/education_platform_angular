@@ -27,7 +27,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 // import { NgModule } from '@angular/core';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-// import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -53,6 +53,11 @@ import { SubjectsService } from './services/subjects.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { ChaptersComponent } from './chapters/chapters.component';
 import { ChapterService } from './services/chapter.service';
+import { HighlightDirective } from './directives/highlight.directive';
+import { TopicsComponent } from './topics/topics.component';
+import { TopicService } from './services/topic.service';
+
+
 
 
 
@@ -79,6 +84,7 @@ import { ChapterService } from './services/chapter.service';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
+    FlexLayoutModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -87,12 +93,15 @@ import { ChapterService } from './services/chapter.service';
     AppComponent,
     AdminLayoutComponent,
     ChaptersComponent,
-    CoursesComponent
+    CoursesComponent,
+    HighlightDirective,
+    TopicsComponent
   ],
   providers: [
     ProcessHTTPMsgService,
     SubjectsService,
     ChapterService,
+    TopicService,
     {provide: 'baseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent]

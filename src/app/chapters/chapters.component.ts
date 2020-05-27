@@ -13,13 +13,22 @@ export class ChaptersComponent implements OnInit {
 
   chapters:any;
   errMess:string;
+  sid:number;
   constructor(private chapterservice: ChapterService, private route: ActivatedRoute, @Inject('baseURL') private baseURL) {
   }
 
   ngOnInit() {
-  
-    this.route.params.pipe(switchMap((params: Params) => { return this.chapterservice.getchapter(+params['id']); }))
-    .subscribe(chapter => { this.chapters = chapter;console.log(this.chapters); },
+    
+    this.route.params.pipe(switchMap((params: Params) => {
+        this.sid = +params['id'];
+        return this.chapterservice.getchapter(+params['id']); 
+      })).subscribe(chapter => { 
+      // this.chapters = chapter;
+      this.chapters=chapter.filter( ( item )=> {
+        return item.sid == this.sid;
+      }); 
+      console.log(this.chapters); 
+    },
       errmess => this.errMess = <any>errmess);
   }
 

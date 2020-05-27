@@ -1,40 +1,53 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="container" fxLayout="column" fxLayoutGap="10px">
+            <div fxFlex>
+              <div>
+                <h3>Courses</h3>
+                <hr />
+              </div>
+            </div>
+            <div fxFlex *ngIf="subjects" class="view overlay">
+              <mat-grid-list cols="2" rowHeight="250px">
+                <mat-grid-tile
+                  *ngFor="let subject of subjects"
+                  [routerLink]="['/chapter', subject.id]"
+                  appHighlight
+                >
+                  <img
+                    class="image"
+                    height="230px"
+                    src="{{ baseURL + subject.image }}"
+                    alt="{{ subject.name }}"
+                  />
+                  <mat-grid-tile-footer>
+                    <!-- <h1> -->
+                      <mat-card-content>
+                      {{ subject.name | uppercase }} <br />
+                      chapters({{ subject.chapters }}) videos({{
+                        subject.videos
+                      }})
+                    </mat-card-content>
+                    <!-- </h1> -->
+                  </mat-grid-tile-footer>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+            <div [hidden]="subjects || errMess">
+              <mat-spinner></mat-spinner>
+              <h4>Loading . . . Please Wait</h4>
+            </div>
 
-<div class="container"
-  fxLayout="column"
-  fxLayoutGap="10px">
-  <div fxFlex>
-    <div>
-      <h3>Courses</h3>
-      <hr>
+            <div fxFlex *ngIf="errMess">
+              <h2>Error</h2>
+              <h4>{{ errMess }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div fxFlex *ngIf="subjects">
-    <mat-grid-list cols="2" rowHeight="250px">
-      <mat-grid-tile *ngFor="let subject of subjects" [routerLink]="['/chapter', subject.id]" appHighlight>
-       <img class="image" height="230px" src="{{ baseURL + subject.image }}" alt={{subject.name}}>
-        <mat-grid-tile-footer>
-          <h1> {{ subject.name | uppercase }} <br> chapters({{subject.chapters}}) videos({{subject.videos}})</h1>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-  <div [hidden]="subjects || errMess">
-    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-  </div>
-
-  <div fxFlex *ngIf="errMess">
-    <h2>Error</h2>
-    <h4>{{errMess}}</h4>
-  </div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
 </div>

@@ -10,7 +10,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { CoursesComponent } from '../../courses/courses.component';
 import { ChaptersComponent } from '../../chapters/chapters.component';
-
+import { TopicsComponent } from '../../topics/topics.component';
+// import { LoginComponent } from '../../login/login.component';
 export const AdminLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -63,5 +64,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'courses',        component: CoursesComponent},
-    {path: 'chapter/:id',     component: ChaptersComponent},
+    { path: 'chapter/:id',    component: ChaptersComponent},
+    { path: 'topic/:id',      component: TopicsComponent}
+    // { path: 'login',          component: LoginComponent }
+    
 ];

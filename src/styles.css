@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'variables';
+@import '../node_modules/font-awesome/scss/font-awesome'; */
+/* @import './app/directives/highlight.directive.css'; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* $lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$primary-color-dark:   #512DA8;
+$primary-color:        #673AB7;
+$primary-color-light:  #D1C4E9;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD; */
+
+
+
+/* .background-primary {
+    background-color: #512DA8!important;
+  }
+.background-accent {
+    background-color: #FFC107!important;
+}
+.text-floral-white {
+    color: floralwhite!important;
+} */
+
+.flex-spacer {
+  flex: 1 1 auto;
+  width: 500px;
+}
+

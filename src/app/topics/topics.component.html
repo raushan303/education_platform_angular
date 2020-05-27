@@ -1,34 +1,33 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="row-fluid">
+    <div class="row">
       <div class="col-md-8">
         <div class="card">
           <div class="container" fxLayout="column" fxLayoutGap="10px">
             <div fxFlex>
               <div>
-                <h3>Chapters</h3>
+                <h3>Topics</h3>
                 <hr />
               </div>
             </div>
-            <div fxFlex *ngIf="chapters">
-              <mat-grid-list cols="2" rowHeight="80px" class="matgrid">
+            <div fxFlex *ngIf="topics">
+              <mat-grid-list cols="2" rowHeight="80px">
                 <mat-grid-tile
-                  *ngFor="let chapter of chapters"
-                  [routerLink]="['/topic', chapter.id]"
+                  *ngFor="let topic of topics"
+                  [routerLink]="['/subtopic', topic.id]"
                   appHighlight
                 >
                     <div class="card-body">
                       <div class="table-responsive">
-                    {{ chapter.name | uppercase }}<br />{{
-                      chapter.attempt
-                    }}/{{ chapter.topic }} concept practiced
+                    {{ topic.name | uppercase }}<br />{{
+                      topic.attempt
+                    }}/{{ topic.subtopic }} concept practiced
                     </div>
                     </div>
                   </mat-grid-tile>
-                  <br>
               </mat-grid-list>
             </div>
-            <div [hidden]="chapters || errMess">
+            <div [hidden]="topics || errMess">
               <mat-spinner></mat-spinner>
               <h4>Loading . . . Please Wait</h4>
             </div>
