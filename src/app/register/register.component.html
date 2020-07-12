@@ -1,0 +1,109 @@
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form novalidate class="register-form" id="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" formControlName="firstname" placeholder="First Name" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" formControlName="lastname" placeholder="Last Name" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.lastname">{{formErrors.lastname}}</mat-error>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" formControlName="username" placeholder="User Name" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.lastname">{{formErrors.username}}</mat-error>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="pass" id="pass" formControlName="password" placeholder="Password" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" formControlName="email" placeholder="Your Email" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+                    </div>
+
+                    <div class="form-group">
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="tel" name="phno" id="email" formControlName="phno" placeholder="Your phno" required>
+                    </div>
+                    <mat-error *ngIf="formErrors.phno">{{formErrors.phno}}</mat-error>
+                    </div>
+                   
+                    <div class="form-group">
+                        <mat-select id="email" placeholder="State" formControlName="state" class="form-group">
+                        <mat-option *ngFor="let state of states" [value]="state">
+                            {{ state }}
+                        </mat-option>
+                        </mat-select>
+                    </div>
+        
+                    <div class="form-group">
+                        <mat-select *ngIf="registerForm.value.state" placeholder="City" formControlName="city" class="full-width">
+                        <mat-option  *ngFor="let city of all[registerForm.value.state]" [value]="city">
+                            {{ city }}
+                        </mat-option>
+                        </mat-select>
+                    </div>
+                    
+                    <div class="form-group">     
+                        <mat-select placeholder="Class" formControlName="grade" class="full-width">
+                        <mat-option *ngFor="let grade of grades" [value]="grade">
+                            {{ grade }}
+                        </mat-option>
+                        </mat-select>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-select placeholder="Board" formControlName="board" class="full-width">
+                        <mat-option *ngFor="let board of boards" [value]="board">
+                            {{ board }}
+                        </mat-option>
+                        </mat-select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <!-- <div class="form-group form-button"> -->
+                        <!-- <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/> -->
+                    <!-- </div> -->
+                    <input type="submit" name="signup" id="signup" class="form-submit" value="Register" (click)="onPartial()" *ngIf="!flag"/>
+                
+                    <div class="form-group" *ngIf ="flag">
+                        <input matInput formControlName="otp" placeholder="Enter OTP" type="password" required>
+                        <mat-error *ngIf="formErrors.otp">{{formErrors.otp}}</mat-error>
+                    </div>
+                    <div *ngIf="success">Successfully Registered :)</div>
+                    <div *ngIf="failure">Invalid OTP :(</div>
+                    <input type="submit" name="signup" id="signup" class="form-submit" value="Verify OTP" *ngIf="flag"/>
+                    <!-- <button type="submit" mat-button class="background-primary text-floral-white" *ngIf ="flag">Verify OTP</button> -->
+                   
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="./assets/img/signup-image.jpg" alt="sing up image"></figure>
+                <a href="#" class="signup-image-link">I am already member</a>
+            </div>
+        </div>
+    </div>
+</section>

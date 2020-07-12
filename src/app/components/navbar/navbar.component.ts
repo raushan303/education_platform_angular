@@ -122,4 +122,11 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+    onSubmit()
+    {
+        console.log("here");
+        // localStorage.token=false;
+        localStorage.removeItem('token');
+        this.router.navigate(['/home']);
+    }
 }

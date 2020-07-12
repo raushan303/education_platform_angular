@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
     { path: '/courses', title: 'Courses',  icon:'class', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-
+    // { path: '/home', title: 'Home',  icon:'home', class: '' },
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
@@ -30,10 +30,18 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    if(localStorage.token)
+    {
+
+    }
+    else
+    {
+      this.router.navigate(['/home']);
+    }
   }
   isMobileMenu() {
       if ($(window).width() > 991) {

@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { CoursesComponent } from '../../courses/courses.component';
 import { ChaptersComponent } from '../../chapters/chapters.component';
 import { TopicsComponent } from '../../topics/topics.component';
+import { HomeComponent } from 'app/home/home.component';
 // import { LoginComponent } from '../../login/login.component';
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,7 +66,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'courses',        component: CoursesComponent},
     { path: 'chapter/:id',    component: ChaptersComponent},
-    { path: 'topic/:id',      component: TopicsComponent}
+    { path: 'topic/:id',      component: TopicsComponent},
+    { path: 'home',           component: HomeComponent}
     // { path: 'login',          component: LoginComponent }
     
 ];

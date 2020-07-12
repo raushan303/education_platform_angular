@@ -49,7 +49,7 @@
 @import "core/cards/card-profile";
 @import "core/cards/card-plain";
 
- //plugin scss
+ //plugin scss 
  @import "core/plugins/animate";
  @import "core/plugins/chartist";
  @import "core/plugins/perfect-scrollbar";
@@ -60,3 +60,10 @@
 
 @import "../../styles.css";
 @import "../../app/directives/highlight.directive.css";
+@import "../../app/home/fonts/material-icon/css/material-design-iconic-font.min.css";
+// @import "../../app/home/css/style.css"; 
+
+
+// :host(app-register){
+//     background-color: red;
+// }

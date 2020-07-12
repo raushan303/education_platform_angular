@@ -1,0 +1,11 @@
+.example-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100px;
+}
+
+/* give ng-select a fixed width, because it isn't limited by the viewport width now */
+ng-select {
+  width: 200px;
+}

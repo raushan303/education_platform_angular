@@ -56,6 +56,14 @@ import { ChapterService } from './services/chapter.service';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TopicsComponent } from './topics/topics.component';
 import { TopicService } from './services/topic.service';
+import { HomeComponent } from './home/home.component';
+
+import { LocationService } from "./services/location.service";
+import { UserService } from "./services/user.service";
+import { FormpostService } from "./services/formpost.service";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { SubtopicComponent } from './subtopic/subtopic.component';
 
 
 
@@ -95,13 +103,20 @@ import { TopicService } from './services/topic.service';
     ChaptersComponent,
     CoursesComponent,
     HighlightDirective,
-    TopicsComponent
+    TopicsComponent,
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+    SubtopicComponent
   ],
   providers: [
     ProcessHTTPMsgService,
     SubjectsService,
     ChapterService,
     TopicService,
+    LocationService,
+    UserService,
+    FormpostService,
     {provide: 'baseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent]
